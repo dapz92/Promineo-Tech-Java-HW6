@@ -28,9 +28,6 @@ public class App {
             }
         }
         
-        //p1.describe();
-        //System.out.println("---------------------------------------------------");)
-        //p2.describe();
         
         for(int i = 1; i < 27; i++){
         	Card c1 = p1.flip();
