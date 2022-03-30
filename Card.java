@@ -1,3 +1,5 @@
+package HW6;
+
 public class Card {
     private int value;
     private String name;
@@ -79,7 +81,7 @@ public class Card {
         }
     }
     
-    public void describe(){
-        System.out.println("This card is the " + this.getCardName() + " and the value is " + this.getCardValue());
+    public String describe(){
+    	return "plays the " + getCardName() + " with value of " + getCardValue();
     }
 }

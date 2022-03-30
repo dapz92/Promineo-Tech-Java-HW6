@@ -1,3 +1,4 @@
+package HW6;
 import java.util.*;
 
 public class Deck{
@@ -15,7 +16,7 @@ public class Deck{
     }
     
     public void shuffle(){
-        Collections.shuffle(this.cards);
+        Collections.shuffle(this.cards, new Random());
         System.out.println("Deck Shuffled!");
     }
     

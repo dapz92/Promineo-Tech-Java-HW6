@@ -1,8 +1,23 @@
+package HW6;
+import java.util.Scanner;
 public class App {
     public static void main(String args[]) {
         Deck cards = new Deck();
-        Player p1 = new Player("Donel");
-        Player p2 = new Player("Mirna");
+        
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Please enter player 1 name: ");
+        
+        String name1 = input.nextLine();
+        
+        System.out.print("Please enter player 2 name: ");
+        
+        String name2 = input.nextLine();
+        
+        input.close();
+        
+        Player p1 = new Player(name1);
+        Player p2 = new Player(name2);
         cards.shuffle();
         
         for(int i = 0; i < 52; i++){
@@ -13,20 +28,29 @@ public class App {
             }
         }
         
-        p1.describe();
-        System.out.println("---------------------------------------------------");
-        p2.describe();
+        //p1.describe();
+        //System.out.println("---------------------------------------------------");)
+        //p2.describe();
         
-        for(int i = 0; i < 26; i++){
-            int p1Value = p1.flip().getCardValue();
-            int p2Value = p2.flip().getCardValue();
+        for(int i = 1; i < 27; i++){
+        	Card c1 = p1.flip();
+        	Card c2 = p2.flip();
             
-            if(p1Value > p2Value){
-                p1.incrementScore();
-            } 
+            System.out.println(p1.getName() +" "+ c1.describe());
+            System.out.println(p2.getName() +" "+ c2.describe());
             
-            if(p2Value > p1Value){
-                p2.incrementScore();
+            if(c1.getCardValue() > c2.getCardValue()) {
+            	System.out.println(p1.getName() + " wins round "+ i);
+            	p1.incrementScore();
+            }
+            
+            if(c2.getCardValue() > c1.getCardValue()) {
+            	System.out.println(p2.getName() + " wins round " + i);
+            	p2.incrementScore();
+            }
+            
+            if(c1.getCardValue() == c2.getCardValue()) {
+            	System.out.println("DRAW! on round "+ i );
             }
         }
         
